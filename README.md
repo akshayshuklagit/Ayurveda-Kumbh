@@ -33,7 +33,7 @@ Welcome to the official repository of **Ayurveda Kumbh 2025**, a digital platfor
 
 ## 🔥 Screenshot
 
-![Home Page](./assets/banner2.png)
+![Home Page](../assets/banner2.png)
 
 ## 💡 Future Plans
 
