@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import Header from "./Header";
 import Footer from "./Footer";
 import ScrollToTop from "../common/ScrollToTop";
-import WhatsAppButton from "../common/WhatsappButton";
+import WhatsAppButton from "../common/WhatsAppButton";
 
 const Layout = ({ children }) => {
   const [isScrolled, setIsScrolled] = useState(false);
