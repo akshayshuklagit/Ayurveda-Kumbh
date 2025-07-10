@@ -31,10 +31,6 @@ Welcome to the official repository of **Ayurveda Kumbh 2025**, a digital platfor
 - **MongoDB**
 - **Razorpay Integration** for secure payments
 
-## 🔥 Screenshot
-
-![Home Page](../assets/banner2.png)
-
 ## 💡 Future Plans
 
 - Admin Dashboard for managing submissions & users
