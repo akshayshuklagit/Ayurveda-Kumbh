@@ -23,7 +23,7 @@ const Venue = () => {
 
           <div className="w-full mb-10">
             <img
-              src="src/assets/images/Shree-Prem-Nagar-Ashram-Haridwar-1.jpg"
+              src="/assets/images/Shree-Prem-Nagar-Ashram-Haridwar-1.jpg"
               alt="Prem Nagar Ashram Venue"
               className="w-full h-auto rounded-xl shadow-lg"
               loading="lazy"
@@ -38,24 +38,24 @@ const Venue = () => {
               {[
                 {
                   title: "🌟 Iconic Venue",
-                  image: "src/assets/images/venue1.png",
+                  image: "/assets/images/venue1.png",
                 },
                 {
                   title: "🌿 Greenery Environment",
-                  image: "src/assets/images/venue6.png",
+                  image: "/assets/images/venue6.png",
                 },
                 {
                   title: "🏛️ India's Biggest Hall",
-                  image: "src/assets/images/venue3.png",
+                  image: "/assets/images/venue3.png",
                 },
 
                 {
                   title: "🎤 Exhibition & Conference Hall",
-                  image: "src/assets/images/venue4.png",
+                  image: "/assets/images/venue4.png",
                 },
                 {
                   title: "🌳 Panch Pallava",
-                  image: "src/assets/images/venue5.png",
+                  image: "/assets/images/venue5.png",
                 },
               ].map((item, index) => (
                 <div
@@ -133,7 +133,7 @@ const Venue = () => {
               Scan the QR code or click above to register
             </p>
             <img
-              src="src/assets/Accomodation.png"
+              src="/assets/Accomodation.png"
               alt="Scan QR for Accommodation Form"
               className="w-80 mx-auto mt-6 mb-8"
             />

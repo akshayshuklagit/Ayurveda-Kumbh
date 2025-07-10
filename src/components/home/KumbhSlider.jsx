@@ -5,28 +5,28 @@ const kumbhEvents = [
   {
     id: 1,
     title: "Ayurveda Kumbh 1 - Ayodhya",
-    image: "/src/assets/images/kumbh3.png",
+    image: "/assets/images/kumbh3.png",
   },
   {
     id: 2,
     title: "Ayurveda Kumbh 1 - Ayodhya",
-    image: "/src/assets/images/kumbh4.png",
+    image: "/assets/images/kumbh4.png",
   },
 
   {
     id: 3,
     title: "Ayurveda Kumbh 2 - Haridwar",
-    image: "/src/assets/images/Screenshot 2025-06-21 181730.png",
+    image: "/assets/images/Screenshot 2025-06-21 181730.png",
   },
   {
     id: 4,
     title: "Ayurveda Kumbh 2 - Haridwar",
-    image: "/src/assets/images/Screenshot 2025-06-21 181808.png",
+    image: "/assets/images/Screenshot 2025-06-21 181808.png",
   },
   {
     id: 5,
     title: "Ayurveda Kumbh 2 - Haridwar",
-    image: "/src/assets/images/Screenshot 2025-06-21 181822.png",
+    image: "/assets/images/Screenshot 2025-06-21 181822.png",
   },
 ];
 

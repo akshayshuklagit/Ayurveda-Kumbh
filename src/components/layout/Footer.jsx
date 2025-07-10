@@ -70,9 +70,9 @@ const Footer = () => {
           {/* Logo and Description */}
           <div className="lg:col-span-2">
             <img
-              src="/src/assets/logo2.png"
+              src="/assets/logo2.png"
               alt="Jivan Amrit Ayurveda Logo"
-              className="h-20 w-auto"
+              className="h-24 w-auto"
             />
             <p className="mt-4 text-gray-300">
               Ayurveda Kumbh is a large-scale pan-India Ayurvedic gathering that

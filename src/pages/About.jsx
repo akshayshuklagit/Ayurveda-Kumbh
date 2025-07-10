@@ -101,7 +101,7 @@ const About = () => {
             </div>
             <div className="relative">
               <img
-                src="/src/assets/images/mission.png"
+                src="/assets/images/mission.png"
                 alt="Ayurvedic gathering"
                 className="rounded-lg shadow-xl w-full h-auto object-cover"
               />
@@ -144,7 +144,7 @@ const About = () => {
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
               <div className="col-span-1">
                 <img
-                  src="/src/assets/images/JivanAmritlogo.png"
+                  src="/assets/images/JivanAmritlogo.png"
                   alt="Jivan Amrit Ayurveda"
                   className="w-full h-auto rounded-lg"
                 />
@@ -205,7 +205,7 @@ const About = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-center justify-center text-center mb-10">
             <div className="flex flex-col items-center bg-white shadow-md p-6 rounded-lg border hover:shadow-xl transition">
               <img
-                src="/src/assets/images/charaksamhita.jpg"
+                src="/assets/images/charakSamhita.jpg"
                 alt="Charak Samhita"
                 className="w-30 h-40 mb-4"
               />
@@ -217,7 +217,7 @@ const About = () => {
 
             <div className="flex flex-col items-center bg-white shadow-md p-6 rounded-lg border hover:shadow-xl transition">
               <img
-                src="/src/assets/images/SusurutSamhita.jpg"
+                src="/assets/images/SusurutSamhita.jpg"
                 alt="Sushrut Samhita"
                 className="w-30 h-40 mb-4"
               />
@@ -229,7 +229,7 @@ const About = () => {
 
             <div className="flex flex-col items-center bg-white shadow-md p-6 rounded-lg border hover:shadow-xl transition">
               <img
-                src="/src/assets/images/AshtangHridyam.jpg"
+                src="/assets/images/AshtangHridyam.jpg"
                 alt="Ashtang Hridayam"
                 className="w-30 h-40 mb-4"
               />
@@ -243,7 +243,7 @@ const About = () => {
           {/* Recognition Badge */}
           <div className="text-center">
             <img
-              src="/src/assets/images/worldBook.jpg"
+              src="/assets/images/worldBook.jpg"
               alt="World Book of Records"
               className="mx-auto w-64 mb-4"
             />

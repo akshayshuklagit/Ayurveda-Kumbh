@@ -41,7 +41,7 @@ const Header = ({ isScrolled }) => {
         <div className="container flex items-center justify-between">
           <Link to="/" className="z-10" onClick={closeMenu}>
             <img
-              src="/src/assets/KumbhLogo.png"
+              src="/assets/Kumbhlogo.png"
               alt="Ayurveda Logo"
               className="h-12 w-auto"
             />

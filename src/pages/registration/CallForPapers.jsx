@@ -322,7 +322,7 @@ const CallForPapers = () => {
             <div className="flex justify-center">
               <div className="text-center">
                 <img
-                  src="/src/assets/paperQR.png"
+                  src="/assets/paperQR.png"
                   alt="Scan to Register"
                   className="w-56 h-56 mx-auto rounded shadow-md"
                 />

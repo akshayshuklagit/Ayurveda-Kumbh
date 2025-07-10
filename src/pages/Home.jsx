@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import bannerImage from "../assets/banner2.png"; // adjust path if needed
 
 import {
   FaCalendarAlt,
@@ -26,13 +25,13 @@ const Home = () => {
       <section
         className="relative bg-cover bg-center bg-no-repeat py-20"
         style={{
-          backgroundImage: "url('/src/assets/banner1.jpg')",
+          backgroundImage: "url('/assets/banner1.jpg')",
         }}
       >
         <div className="container mx-auto px-4 text-center text-slate-800">
           <div className="flex justify-center mb-6">
             <img
-              src="/src/assets/Kumbhlogo.png"
+              src="/assets/Kumbhlogo.png"
               alt="Ayurveda Kumbh Logo"
               className="h-96 w-auto object-contain"
             />
@@ -105,7 +104,7 @@ const Home = () => {
             </div>
             <div>
               <img
-                src={bannerImage}
+                src="/assets/banner2.png"
                 alt="Ayurvedic herbs and treatments"
                 className="rounded-lg shadow-xl w-full h-auto object-cover"
               />
@@ -125,7 +124,7 @@ const Home = () => {
 
             <div className="text-center mt-8">
               <img
-                src="/src/assets/abhayji.jpg"
+                src="/assets/abhayji.jpg"
                 alt="Vaidya Abhay Narayan Mishra"
                 className="w-64 h-auto mx-auto rounded-lg shadow-md"
               />

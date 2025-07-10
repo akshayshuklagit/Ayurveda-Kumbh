@@ -130,7 +130,7 @@ const VendorRegistration = () => {
         {Array.from({ length: 16 }).map((_, i) => (
           <img
             key={i}
-            src={`/src/assets/exhibition/ex${i}.jpg`}
+            src={`/assets/exhibition/ex${i}.jpg`}
             alt={`Exhibition ${i}`}
             className="w-full h-64 object-cover rounded-lg shadow"
           />
@@ -207,7 +207,7 @@ const VendorRegistration = () => {
             <div className="flex justify-center">
               <div className="text-center">
                 <img
-                  src="/src/assets/exhibition-register-qr.png"
+                  src="/assets/exhibition-register-qr.png"
                   alt="Scan to Register"
                   className="w-56 h-56 mx-auto rounded shadow-md"
                 />
@@ -228,7 +228,7 @@ const VendorRegistration = () => {
             <div className="bg-gray-200 p-4 rounded-md text-center mb-4">
               <div className="h-64 flex items-center justify-center border border-dashed border-gray-400 rounded-md">
                 <img
-                  src="/src/assets/exhibationlayout.png"
+                  src="/assets/exhibationlayout.png"
                   alt="Exhibition Floor Plan"
                   className="max-h-full max-w-full"
                 />

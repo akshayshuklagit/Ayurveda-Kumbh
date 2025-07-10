@@ -248,7 +248,7 @@ const DelegateRegistration = () => {
             <div className="flex justify-center">
               <div className="text-center">
                 <img
-                  src="/src/assets/deligate-registeration-qr.png"
+                  src="/assets/deligate-registeration-qr.png"
                   alt="Scan to Register"
                   className="w-56 h-56 mx-auto rounded shadow-md"
                 />
