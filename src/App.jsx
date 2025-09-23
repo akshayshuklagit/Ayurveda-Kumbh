@@ -16,6 +16,7 @@ const VendorRegistration = lazy(() =>
 );
 const CallForPapers = lazy(() => import("./pages/registration/CallForPapers"));
 const Gallery = lazy(() => import("./pages/Gallery"));
+const Schedule = lazy(() => import("./pages/Schedule"));
 const Venue = lazy(() => import("./pages/Venue"));
 const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy"));
 const TermsConditions = lazy(() => import("./pages/TermsConditions"));
@@ -43,6 +44,7 @@ function App() {
             element={<CallForPapers />}
           />
           <Route path="/gallery" element={<Gallery />} />
+          <Route path="/schedule" element={<Schedule />} />
           <Route path="/venue" element={<Venue />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/terms-conditions" element={<TermsConditions />} />

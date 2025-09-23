@@ -71,11 +71,4 @@
   animation: float 3s ease-in-out infinite;
 }
 
-/* Sanskrit font loading */
-@font-face {
-  font-family: 'Sanskrit Text';
-  src: url('/src/assets/fonts/sanskrit.woff2') format('woff2');
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
+/* Sanskrit font removed - using system fonts */

@@ -35,7 +35,7 @@ export default {
         },
       },
       fontFamily: {
-        sanskrit: ["Sanskrit Text", "serif"],
+        sanskrit: ["serif"],
         heading: ["Poppins", "sans-serif"],
         body: ["Open Sans", "sans-serif"],
       },

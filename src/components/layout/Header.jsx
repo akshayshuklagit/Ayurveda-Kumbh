@@ -18,6 +18,7 @@ const Header = ({ isScrolled }) => {
     { name: "Home", path: "/" },
     { name: "About", path: "/about" },
     { name: "Speakers", path: "/speakers" },
+    { name: "Schedule", path: "/schedule" },
     { name: "Gallery", path: "/gallery" },
     { name: "Venue", path: "/venue" },
     { name: "Contact", path: "/contact" },

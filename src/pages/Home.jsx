@@ -13,6 +13,8 @@ import SectionTitle from "../components/common/SectionTitle";
 import Highlights from "../components/home/Highlights";
 import KumbhSlider from "../components/home/KumbhSlider";
 import Infoslider from "../components/home/Infoslider";
+import VideoSlider from "../components/home/VideoSlider";
+import EarlyBirdAlert from "../components/common/EarlyBirdAlert";
 const Home = () => {
   // Event details
   const eventDetails = {
@@ -274,6 +276,28 @@ const Home = () => {
           </div>
         </div>
       </section>
+      {/* Video Gallery Section */}
+      <section className="section bg-white">
+        <div className="container">
+          <SectionTitle>Event Videos & Updates</SectionTitle>
+          <VideoSlider />
+          
+          {/* Instagram Section */}
+          <div className="bg-gradient-to-r from-pink-50 to-purple-50 rounded-2xl p-8 text-center mt-12">
+            <h3 className="text-2xl font-bold mb-4 text-gray-800">Follow Our Journey</h3>
+            <p className="text-gray-600 mb-6">Stay connected with daily updates, behind-the-scenes content, and live coverage</p>
+            <a
+              href="https://instagram.com/ayurvedakumbh"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-gradient-to-r from-pink-500 to-purple-600 text-white px-8 py-3 rounded-full hover:from-pink-600 hover:to-purple-700 transition-all duration-300 inline-flex items-center gap-2 font-semibold"
+            >
+              📱 Follow @ayurvedakumbh
+            </a>
+          </div>
+        </div>
+      </section>
+
       <section className="section bg-background">
         <div className="container">
           <SectionTitle>Ayurveda Kumbh Editions</SectionTitle>

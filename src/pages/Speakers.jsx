@@ -66,18 +66,18 @@ const Speakers = () => {
       category: "Academicians",
     },
     {
-      id: 7,
-      name: "Guruvarya Vaidya Shri Tapankumar Ji",
+      id: 8,
+      name: "Guruvarya Vaidya Shri Tapankumar Ji",
       title:
-        "Known as ‘Samhita Sadguru`" +
+        "Known as 'Samhita Sadguru`" +
         "Renowned Ayurveda Practitioner in Cancer & Cardiology " +
         "Director - Research (Ayurveda) SGVP Hospital Ahmedabad, " +
-        "4th Generation Vaidya with 30+ years experience",
+        "4th Generation Vaidya with 30+ years experience",
       image: "/assets/speakers/tapankumar.png",
       category: "Academicians",
     },
     {
-      id: 8,
+      id: 9,
       name: "Guruvarya Vaidya Shri Sasikumar Nechiyil Ji",
       title:
         "Chief Physician, Nechiyil Ayurveda Vaidyasala | CEO, Sidheshwara Drugs, Palakkad, Kerala | Renowned Rasvaidya | RAV Guru (Ministry of Ayush)",
@@ -85,7 +85,7 @@ const Speakers = () => {
       category: "Rasvaidyas",
     },
     {
-      id: 9,
+      id: 10,
       name: "Guruvarya Vaidya Shri Yogesh Bendale Ji",
       title:
         "Founder - Rasayu Cancer Clinic | Chairman & Managing Director, Rasayu Group | Renowned Ayurveda Oncologists | RAV Guru (Ministry of Ayush)",
@@ -93,7 +93,7 @@ const Speakers = () => {
       category: "Oncologists",
     },
     {
-      id: 10,
+      id: 11,
       name: "Guruvarya Vaidya Shri M Gopikrishnan Ji",
       title:
         "Chairman, IIAR | Renowned Ayurveda Expert in Cancer Care | Renowned Rasvaidya Expert | Bellary, Karnataka",
@@ -101,7 +101,7 @@ const Speakers = () => {
       category: "Oncologists",
     },
     {
-      id: 11,
+      id: 12,
       name: "Guruvarya Vaidya Shri Upendra Dixit Ji",
       title:
         "Founder - Dr. Dixit Ayurveda | Renowned Ayurveda Practitioner | RAV Guru (Ministry of Ayush) | Goa",
@@ -109,7 +109,7 @@ const Speakers = () => {
       category: "Practitioners",
     },
     {
-      id: 12,
+      id: 13,
       name: "Guruvarya Vaidya Shri Anand Chaudhary Ji",
       title:
         "Professor, Rasashashtra | Ex HOD, RSBK Faculty of Ayurveda, Banaras Hindu University | Varanasi",
@@ -117,7 +117,7 @@ const Speakers = () => {
       category: "Academicians",
     },
     {
-      id: 13,
+      id: 14,
       name: "Guruvarya Vaidya Shri Rajesh Thakkar Ji",
       title:
         "Founder - Nisarg Ayurveda, Ahmedabad | Renowned Ayurveda Practitioner | Expert in Garbhasanskar",
@@ -125,7 +125,7 @@ const Speakers = () => {
       category: "Practitioners",
     },
     {
-      id: 14,
+      id: 15,
       name: "Guruvarya Vaidya Shri Pradnya Aptikar Ji",
       title:
         "Renowned Ayurveda Gynecologist | Founder, Arya Clinic | Pune, Maharashtra",
@@ -133,7 +133,7 @@ const Speakers = () => {
       category: "Practitioners",
     },
     {
-      id: 15,
+      id: 16,
       name: "Dr. Ashwath Rao Ji",
       title:
         "MBBS, MS | Allopathy practitioner who successfully implemented Ayurveda purified heavy metals in COVID-19 | Hyderabad",
@@ -141,28 +141,28 @@ const Speakers = () => {
       category: "Integrative Medicine",
     },
     {
-      id: 16,
+      id: 17,
       name: "Vaidya Shri Dattatray Pandya Ji",
       title:
-        "Renowned Ayurveda consultant and Panchkarma physician also a Nadi specialist and medical astrologer, and the visionary founder of Nakshatra Ayurvedam Hospital\nFounder – Keshayurveda & Kayayurveda\nPune Maharashtra",
+        "Renowned Ayurveda consultant and Panchkarma physician also a Nadi specialist and medical astrologer, and the visionary founder of Nakshatra Ayurvedam Hospital\nFounder – Keshayurveda & Kayayurveda\nPune Maharashtra",
       image: "/assets/speakers/pandaya.jpg",
     },
     {
-      id: 17,
+      id: 18,
       name: "Vaidya Harish Patankar",
       title:
         "Renowned Ayurvedacharya, Nadi expert\nFounder of Keshayurved & Kayayurveda\nFounder – Prachin Samhita Gurukul\nPune Maharashtra",
       image: "/assets/speakers/Harish.png",
     },
     {
-      id: 18,
+      id: 19,
       name: "Vaidya Mhendrasinh Saravaiya",
       title:
         "Founder – Ashtang Ayurveda Dham\nWell known for treating chronic diseases and promoting Ayurvedic lifestyle\nTalaja Gujarat",
       image: "/assets/speakers/sarvaiya.png",
     },
     {
-      id: 19,
+      id: 20,
       name: "Vaidya Raj Satiate",
       title:
         "Global Ayurveda Practitioner (Reaching over 55 countries)\nDirector, Jyovis Hospital of Ayurveda\nMOH (UAE), DHA (Dubai)",
