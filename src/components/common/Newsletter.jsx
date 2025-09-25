@@ -1,47 +1,49 @@
-import React, { useState } from 'react';
-import { FaEnvelope } from 'react-icons/fa';
+import React, { useState } from "react";
+import { FaEnvelope } from "react-icons/fa";
 
 const Newsletter = () => {
-  const [email, setEmail] = useState('');
-  const [name, setName] = useState('');
+  const [email, setEmail] = useState("");
+  const [name, setName] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [message, setMessage] = useState('');
+  const [message, setMessage] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
-    setMessage('');
+    setMessage("");
 
     try {
-      const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
-      console.log('API URL:', API_URL);
-      console.log('Submitting:', { email, name });
-      
+      const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5000";
+      console.log("API URL:", API_URL);
+      console.log("Submitting:", { email, name });
+
       const response = await fetch(`${API_URL}/api/subscribers`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, name }),
       });
 
-      console.log('Response status:', response.status);
-      
+      console.log("Response status:", response.status);
+
       if (response.ok) {
         const result = await response.json();
-        console.log('Success:', result);
-        setMessage('Thank you for subscribing!');
-        setEmail('');
-        setName('');
+        console.log("Success:", result);
+        setMessage("Thank you for subscribing!");
+        setEmail("");
+        setName("");
       } else {
         const error = await response.json();
-        console.log('Error response:', error);
-        setMessage(error.error || `Error ${response.status}: Subscription failed`);
+        console.log("Error response:", error);
+        setMessage(
+          error.error || `Error ${response.status}: Subscription failed`
+        );
       }
     } catch (error) {
-      console.error('Network error:', error);
+      console.error("Network error:", error);
       setMessage(`Network error: ${error.message}`);
     } finally {
       setIsSubmitting(false);
-      setTimeout(() => setMessage(''), 5000);
+      setTimeout(() => setMessage(""), 5000);
     }
   };
 
@@ -51,9 +53,9 @@ const Newsletter = () => {
         <FaEnvelope className="text-2xl" />
         <h3 className="text-xl font-bold">Stay Updated</h3>
       </div>
-      
+
       <p className="mb-4">Get the latest updates about Ayurveda Kumbh 2025</p>
-      
+
       <form onSubmit={handleSubmit} className="space-y-3">
         <input
           type="text"
@@ -74,14 +76,18 @@ const Newsletter = () => {
         <button
           type="submit"
           disabled={isSubmitting}
-          className="w-full bg-accent text-white py-2 rounded hover:bg-accent-dark disabled:opacity-50"
+          className="w-full bg-primary-light text-white py-2 rounded hover:bg-accent-dark disabled:opacity-50"
         >
-          {isSubmitting ? 'Subscribing...' : 'Subscribe'}
+          {isSubmitting ? "Subscribing..." : "Subscribe"}
         </button>
       </form>
-      
+
       {message && (
-        <p className={`mt-3 text-sm ${message.includes('Thank') ? 'text-green-200' : 'text-red-200'}`}>
+        <p
+          className={`mt-3 text-sm ${
+            message.includes("Thank") ? "text-green-200" : "text-red-200"
+          }`}
+        >
           {message}
         </p>
       )}
