@@ -75,19 +75,17 @@ const Contact = () => {
     setSubmitError(false);
 
     try {
-      const response = await fetch(
-        "https://script.google.com/macros/s/AKfycbxRpBDyyB9G3yv3nd8gvkAIN91yhQl2IJ843oKgiuSXSPr3rU8aKOtad1d7utGhDfC7/exec",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded",
-          },
-          body: `Name=${formData.name}&Email=${formData.email}&Phone=${formData.phone}&Subject=${formData.subject}&Message=${formData.message}&InquiryType=${formData.inquiryType}`,
-        }
-      );
+      // Try to save to our database first
+      const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+      const dbResponse = await fetch(`${API_URL}/api/contact`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
 
-      const result = await response.text();
-      if (result.includes("Added")) {
+      if (dbResponse.ok) {
         setFormData({
           name: "",
           email: "",
@@ -98,9 +96,25 @@ const Contact = () => {
         });
         setSubmitSuccess(true);
       } else {
-        throw new Error("Failed to submit");
+        const errorData = await dbResponse.json();
+        console.log('Backend validation errors:', errorData);
+        
+        // Handle validation errors
+        if (errorData.details && Array.isArray(errorData.details)) {
+          const backendErrors = {};
+          errorData.details.forEach(detail => {
+            if (detail.path) {
+              backendErrors[detail.path] = detail.msg;
+            }
+          });
+          setFormErrors(backendErrors);
+          return;
+        }
+        
+        throw new Error(errorData.error || 'Failed to submit contact form');
       }
     } catch (err) {
+      console.error('Contact form error:', err);
       setSubmitError(true);
     } finally {
       setIsSubmitting(false);
@@ -195,7 +209,6 @@ const Contact = () => {
                   >
                     <FaEnvelope className="w-4 h-4" />
                   </button>
-                  pe
                 </div>
               )}
 

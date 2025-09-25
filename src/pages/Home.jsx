@@ -14,7 +14,7 @@ import Highlights from "../components/home/Highlights";
 import KumbhSlider from "../components/home/KumbhSlider";
 import Infoslider from "../components/home/Infoslider";
 import VideoSlider from "../components/home/VideoSlider";
-import EarlyBirdAlert from "../components/common/EarlyBirdAlert";
+import Newsletter from "../components/common/Newsletter";
 const Home = () => {
   // Event details
   const eventDetails = {
@@ -303,6 +303,15 @@ const Home = () => {
           <SectionTitle>Ayurveda Kumbh Editions</SectionTitle>
 
           <KumbhSlider />
+        </div>
+      </section>
+
+      {/* Newsletter Section */}
+      <section className="py-16 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <div className="max-w-md mx-auto">
+            <Newsletter />
+          </div>
         </div>
       </section>
     </>

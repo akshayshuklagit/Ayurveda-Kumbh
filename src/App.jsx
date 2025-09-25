@@ -1,7 +1,8 @@
-import { Routes, Route } from "react-router-dom";
-import { Suspense, lazy } from "react";
+import { Routes, Route, useLocation } from "react-router-dom";
+import { Suspense, lazy, useEffect } from "react";
 import Layout from "./components/layout/Layout";
 import Loading from "./components/common/Loading";
+import { trackPageView } from "./utils/analytics";
 
 // Lazy load pages for better performance
 const Home = lazy(() => import("./pages/Home"));
@@ -22,38 +23,49 @@ const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy"));
 const TermsConditions = lazy(() => import("./pages/TermsConditions"));
 const RefundPolicy = lazy(() => import("./pages/RefundPolicy"));
 const Contact = lazy(() => import("./pages/Contact"));
+const Admin = lazy(() => import("./pages/Admin"));
 const NotFound = lazy(() => import("./pages/NotFound"));
+
+// Component to track page views
+function PageTracker() {
+  const location = useLocation();
+  
+  useEffect(() => {
+    trackPageView(location.pathname);
+  }, [location]);
+  
+  return null;
+}
 
 function App() {
   return (
-    <Layout>
-      <Suspense fallback={<Loading />}>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/speakers" element={<Speakers />} />
-
-          <Route path="/registration" element={<Registration />} />
-          <Route
-            path="/registration/delegate"
-            element={<DelegateRegistration />}
-          />
-          <Route path="/registration/vendor" element={<VendorRegistration />} />
-          <Route
-            path="/registration/call-for-papers"
-            element={<CallForPapers />}
-          />
-          <Route path="/gallery" element={<Gallery />} />
-          <Route path="/schedule" element={<Schedule />} />
-          <Route path="/venue" element={<Venue />} />
-          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-          <Route path="/terms-conditions" element={<TermsConditions />} />
-          <Route path="/refund-policy" element={<RefundPolicy />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </Suspense>
-    </Layout>
+    <Suspense fallback={<Loading />}>
+      <PageTracker />
+      <Routes>
+        <Route path="/admin" element={<Admin />} />
+        <Route path="*" element={
+          <Layout>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/speakers" element={<Speakers />} />
+              <Route path="/registration" element={<Registration />} />
+              <Route path="/registration/delegate" element={<DelegateRegistration />} />
+              <Route path="/registration/vendor" element={<VendorRegistration />} />
+              <Route path="/registration/call-for-papers" element={<CallForPapers />} />
+              <Route path="/gallery" element={<Gallery />} />
+              <Route path="/schedule" element={<Schedule />} />
+              <Route path="/venue" element={<Venue />} />
+              <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+              <Route path="/terms-conditions" element={<TermsConditions />} />
+              <Route path="/refund-policy" element={<RefundPolicy />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </Layout>
+        } />
+      </Routes>
+    </Suspense>
   );
 }
 

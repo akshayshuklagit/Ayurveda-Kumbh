@@ -26,7 +26,7 @@ const DelegateRegistration = () => {
         "Certificate",
         "Access to all events and exhibitions",
       ],
-      earlybirds: true,
+      earlybirds: false,
     },
     {
       id: "pg-phd-scholar",
@@ -183,7 +183,7 @@ const DelegateRegistration = () => {
                     ))}
                   </ul>
                   <div
-                    className={`w-full py-2 px-4 rounded-md transition-colors duration-300 text-center
+                    className={`w-full py-2 px-4 rounded-md transition-colors duration-300 text-center cursor-pointer
     ${
       selectedPlan === plan.id
         ? "bg-primary text-white"
@@ -191,7 +191,6 @@ const DelegateRegistration = () => {
     }`}
                     onClick={() => {
                       if (selectedPlan === plan.id) {
-                        // Replace with your actual Google Form link
                         window.open(
                           "https://forms.gle/57ADgXhiYJFLSVzV8",
                           "_blank"
@@ -202,7 +201,7 @@ const DelegateRegistration = () => {
                     }}
                   >
                     {selectedPlan === plan.id
-                      ? "Proceed to register "
+                      ? "Proceed to Register"
                       : "Select Plan"}
                   </div>
                 </div>
@@ -241,6 +240,25 @@ const DelegateRegistration = () => {
               rel="noopener noreferrer"
               className="inline-block bg-primary text-white font-semibold px-6 py-3 rounded-md shadow hover:bg-primary-dark transition mb-8"
             >
+              Register Now
+            </a>
+          </div>
+
+          {/* Accommodation Form Link */}
+          <div className="mt-8 p-6 bg-white rounded-lg shadow border-l-4 border-accent">
+            <h3 className="text-xl font-semibold text-primary mb-3">
+              Need Accommodation?
+            </h3>
+            <p className="text-gray-700 mb-4">
+              Book your stay for Ayurveda Kumbh 2025. We offer comfortable
+              accommodation options for all delegates.
+            </p>
+            <a
+              href="https://forms.gle/8XmJT2QGN39MZpP18"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block bg-accent text-white font-semibold px-6 py-3 rounded-md shadow hover:bg-accent-dark transition"
+            >
               Fill The Registration Form
             </a>
 
@@ -248,7 +266,7 @@ const DelegateRegistration = () => {
             <div className="flex justify-center">
               <div className="text-center">
                 <img
-                  src="/assets/deligate-registeration-qr.png"
+                  src="/assets/Accomodation.png"
                   alt="Scan to Register"
                   className="w-56 h-56 mx-auto rounded shadow-md"
                 />
