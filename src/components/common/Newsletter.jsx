@@ -14,34 +14,31 @@ const Newsletter = () => {
 
     try {
       const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+      console.log('API URL:', API_URL);
+      console.log('Submitting:', { email, name });
       
-      try {
-        const response = await fetch(`${API_URL}/api/subscribers`, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ email, name }),
-        });
+      const response = await fetch(`${API_URL}/api/subscribers`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, name }),
+      });
 
-        if (response.ok) {
-          setMessage('Thank you for subscribing!');
-          setEmail('');
-          setName('');
-        } else {
-          const error = await response.json();
-          setMessage(error.error || 'Subscription failed');
-        }
-      } catch (networkError) {
-        // Backend down - save locally and show success
-        const savedSubscribers = JSON.parse(localStorage.getItem('pendingSubscribers') || '[]');
-        savedSubscribers.push({ email, name, timestamp: new Date().toISOString() });
-        localStorage.setItem('pendingSubscribers', JSON.stringify(savedSubscribers));
-        
+      console.log('Response status:', response.status);
+      
+      if (response.ok) {
+        const result = await response.json();
+        console.log('Success:', result);
         setMessage('Thank you for subscribing!');
         setEmail('');
         setName('');
+      } else {
+        const error = await response.json();
+        console.log('Error response:', error);
+        setMessage(error.error || `Error ${response.status}: Subscription failed`);
       }
     } catch (error) {
-      setMessage('Something went wrong. Please try again.');
+      console.error('Network error:', error);
+      setMessage(`Network error: ${error.message}`);
     } finally {
       setIsSubmitting(false);
       setTimeout(() => setMessage(''), 5000);
