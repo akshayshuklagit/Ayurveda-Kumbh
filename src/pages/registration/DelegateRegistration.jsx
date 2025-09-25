@@ -17,7 +17,7 @@ const DelegateRegistration = () => {
     {
       id: "bams-scholar",
       name: "BAMS Scholar",
-      price: 1500,
+      price: 2000,
       originalPrice: 2000,
       deadline: "₹1500 before June 30, ₹2000 after June 30, ₹2500 on-spot",
       features: [
@@ -40,12 +40,12 @@ const DelegateRegistration = () => {
         "Certificate",
         "Access to all events and exhibitions",
       ],
-      earlybirds: true,
+      earlybirds: false,
     },
     {
       id: "practitioner-faculty",
       name: "Practitioner/Faculty",
-      price: 2000,
+      price: 2500,
       originalPrice: 2500,
       deadline: "₹2000 before June 30, ₹2500 after June 30, ₹3000 on-spot",
       features: [
@@ -54,12 +54,12 @@ const DelegateRegistration = () => {
         "Certificate",
         "Access to all events and exhibitions",
       ],
-      earlybirds: true,
+      earlybirds: false,
     },
     {
       id: "others",
       name: "Others",
-      price: 2000,
+      price: 2500,
       originalPrice: 2500,
       deadline: "₹2000 before June 30, ₹2500 after June 30, ₹3000 on-spot",
       features: [
@@ -68,7 +68,7 @@ const DelegateRegistration = () => {
         "Certificate",
         "Access to all events and exhibitions",
       ],
-      earlybirds: true,
+      earlybirds: false,
     },
   ];
 

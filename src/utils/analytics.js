@@ -28,11 +28,11 @@ export const trackPageView = (page) => {
           page: currentPage,
           timestamp: new Date().toISOString()
         }),
-      }).catch(err => console.log('Analytics tracking failed:', err));
+      }).catch(err => {});
       
       lastTrackedPage = currentPage;
     } catch (error) {
-      console.log('Analytics error:', error);
+
     }
   }, 1000); // 1 second debounce
 };

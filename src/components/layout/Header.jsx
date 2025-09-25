@@ -17,6 +17,7 @@ const Header = ({ isScrolled }) => {
   const navItems = [
     { name: "Home", path: "/" },
     { name: "About", path: "/about" },
+    { name: "Highlights", path: "/highlights" },
     { name: "Speakers", path: "/speakers" },
     { name: "Schedule", path: "/schedule" },
     { name: "Gallery", path: "/gallery" },
@@ -56,10 +57,10 @@ const Header = ({ isScrolled }) => {
                   <NavLink
                     to={item.path}
                     className={({ isActive }) =>
-                      `font-medium text-xl  transition duration-300 ease-in-out relative group ${
+                      `font-medium text-xl transition duration-300 ease-in-out relative group ${
                         isActive
-                          ? "text-[#d97706]" // active = saffron
-                          : "text-[#333] hover:text-[#0ea5e9]" // dark gray with blue hover
+                          ? "text-[#d97706]"
+                          : "text-[#333] hover:text-[#0ea5e9]"
                       }`
                     }
                   >

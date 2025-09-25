@@ -145,7 +145,7 @@ const Venue = () => {
             </h3>
             <p className="text-gray-700">For venue-related queries, contact:</p>
             <p className="text-green-800 font-medium mt-2">
-              Dr. Vaibhav Mishra
+              Dr. Anubhav Mishra
             </p>
             <p>Email: ayurvedakumbh@gmail.com</p>
             <p>Phone: +91-9984276035</p>

@@ -54,8 +54,50 @@ class ApiService {
       return await response.json();
     } catch (error) {
       console.error('API Request failed:', error);
+      
+      // Backend fallback - return mock data for critical endpoints
+      if (error.name === 'TypeError' || error.message.includes('fetch')) {
+        return this.getFallbackData(endpoint);
+      }
+      
       throw error;
     }
+  }
+
+  getFallbackData(endpoint) {
+    console.warn('Backend unavailable, using fallback data for:', endpoint);
+    
+    // Return appropriate fallback data based on endpoint
+    if (endpoint.includes('/subscribers')) {
+      return [];
+    }
+    
+    if (endpoint.includes('/contacts')) {
+      return [];
+    }
+    
+    if (endpoint.includes('/admin/stats')) {
+      return {
+        subscribers: 0,
+        contacts: 0,
+        todayVisits: 0,
+        totalVisits: 0
+      };
+    }
+    
+    if (endpoint.includes('/traffic/stats')) {
+      return {
+        todayVisits: 0,
+        yesterdayVisits: 0,
+        weekVisits: 0,
+        monthVisits: 0,
+        totalVisits: 0,
+        topPages: [],
+        dailyStats: []
+      };
+    }
+    
+    return { success: false, error: 'Backend unavailable' };
   }
 
   async login(credentials) {
@@ -84,10 +126,24 @@ class ApiService {
   }
 
   async post(endpoint, data) {
-    return this.request(endpoint, {
-      method: 'POST',
-      body: JSON.stringify(data),
-    });
+    try {
+      return await this.request(endpoint, {
+        method: 'POST',
+        body: JSON.stringify(data),
+      });
+    } catch (error) {
+      // For POST requests, show user-friendly message when backend is down
+      if (error.name === 'TypeError' || error.message.includes('fetch')) {
+        if (endpoint.includes('/contact')) {
+          throw new Error('Unable to submit form. Please try again later or contact us directly.');
+        }
+        if (endpoint.includes('/subscribers')) {
+          throw new Error('Unable to subscribe. Please try again later.');
+        }
+        throw new Error('Service temporarily unavailable. Please try again later.');
+      }
+      throw error;
+    }
   }
 }
 

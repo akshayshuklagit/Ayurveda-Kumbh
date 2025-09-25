@@ -23,6 +23,7 @@ const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy"));
 const TermsConditions = lazy(() => import("./pages/TermsConditions"));
 const RefundPolicy = lazy(() => import("./pages/RefundPolicy"));
 const Contact = lazy(() => import("./pages/Contact"));
+const KeyHighlights = lazy(() => import("./pages/KeyHighlights"));
 const Admin = lazy(() => import("./pages/Admin"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
@@ -48,6 +49,7 @@ function App() {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/about" element={<About />} />
+              <Route path="/highlights" element={<KeyHighlights />} />
               <Route path="/speakers" element={<Speakers />} />
               <Route path="/registration" element={<Registration />} />
               <Route path="/registration/delegate" element={<DelegateRegistration />} />

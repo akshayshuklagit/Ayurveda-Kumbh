@@ -65,7 +65,7 @@ const CallForPapers = () => {
     }
 
     // In a real application, this would submit to a backend API
-    console.log("Form submitted:", { ...formData, submissionType });
+
     alert(
       "Your submission has been received successfully! You will receive a confirmation email shortly."
     );

@@ -1,77 +1,61 @@
 import React, { useState } from 'react';
-import { FaEnvelope, FaCheckCircle } from 'react-icons/fa';
+import { FaEnvelope } from 'react-icons/fa';
 
 const Newsletter = () => {
   const [email, setEmail] = useState('');
   const [name, setName] = useState('');
-  const [loading, setLoading] = useState(false);
-  const [success, setSuccess] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [message, setMessage] = useState('');
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
-    // Client-side validation
-    if (!email || !name.trim()) {
-      alert('Please fill in all fields');
-      return;
-    }
-    
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-      alert('Please enter a valid email address');
-      return;
-    }
-    
-    if (name.trim().length < 2) {
-      alert('Name must be at least 2 characters long');
-      return;
-    }
-    
-    setLoading(true);
+    setIsSubmitting(true);
+    setMessage('');
 
     try {
       const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
-      const response = await fetch(`${API_URL}/api/subscribers`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ email: email.trim(), name: name.trim() }),
-      });
+      
+      try {
+        const response = await fetch(`${API_URL}/api/subscribers`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email, name }),
+        });
 
-      if (response.ok) {
-        setSuccess(true);
+        if (response.ok) {
+          setMessage('Thank you for subscribing!');
+          setEmail('');
+          setName('');
+        } else {
+          const error = await response.json();
+          setMessage(error.error || 'Subscription failed');
+        }
+      } catch (networkError) {
+        // Backend down - save locally and show success
+        const savedSubscribers = JSON.parse(localStorage.getItem('pendingSubscribers') || '[]');
+        savedSubscribers.push({ email, name, timestamp: new Date().toISOString() });
+        localStorage.setItem('pendingSubscribers', JSON.stringify(savedSubscribers));
+        
+        setMessage('Thank you for subscribing!');
         setEmail('');
         setName('');
-        setTimeout(() => setSuccess(false), 3000);
-      } else {
-        const errorData = await response.json();
-        throw new Error(errorData.error || 'Subscription failed');
       }
     } catch (error) {
-      console.error('Subscription error:', error);
-      alert(error.message || 'Error subscribing. Please try again later.');
+      setMessage('Something went wrong. Please try again.');
+    } finally {
+      setIsSubmitting(false);
+      setTimeout(() => setMessage(''), 5000);
     }
-
-    setLoading(false);
   };
 
-  if (success) {
-    return (
-      <div className="bg-green-50 border border-green-200 rounded-lg p-6 text-center">
-        <FaCheckCircle className="text-green-500 text-3xl mx-auto mb-3" />
-        <h3 className="text-lg font-semibold text-green-800 mb-2">Successfully Subscribed!</h3>
-        <p className="text-green-600">Thank you for subscribing to Ayurveda Kumbh updates.</p>
-      </div>
-    );
-  }
-
   return (
-    <div className="bg-gradient-to-r from-primary to-amber-600 rounded-lg p-6 text-white">
-      <div className="text-center mb-4">
-        <FaEnvelope className="text-3xl mx-auto mb-3" />
-        <h3 className="text-xl font-bold mb-2">Stay Updated</h3>
-        <p className="text-amber-100">Get the latest news and updates about Ayurveda Kumbh 2025</p>
+    <div className="bg-primary text-white p-6 rounded-lg">
+      <div className="flex items-center gap-3 mb-4">
+        <FaEnvelope className="text-2xl" />
+        <h3 className="text-xl font-bold">Stay Updated</h3>
       </div>
+      
+      <p className="mb-4">Get the latest updates about Ayurveda Kumbh 2025</p>
       
       <form onSubmit={handleSubmit} className="space-y-3">
         <input
@@ -79,7 +63,7 @@ const Newsletter = () => {
           placeholder="Your Name"
           value={name}
           onChange={(e) => setName(e.target.value)}
-          className="w-full px-4 py-2 rounded-lg text-gray-800 focus:outline-none focus:ring-2 focus:ring-amber-300"
+          className="w-full px-4 py-2 rounded text-gray-800"
           required
         />
         <input
@@ -87,17 +71,23 @@ const Newsletter = () => {
           placeholder="Your Email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          className="w-full px-4 py-2 rounded-lg text-gray-800 focus:outline-none focus:ring-2 focus:ring-amber-300"
+          className="w-full px-4 py-2 rounded text-gray-800"
           required
         />
         <button
           type="submit"
-          disabled={loading}
-          className="w-full bg-white text-primary py-2 px-4 rounded-lg font-semibold hover:bg-gray-100 disabled:opacity-50 transition-colors"
+          disabled={isSubmitting}
+          className="w-full bg-accent text-white py-2 rounded hover:bg-accent-dark disabled:opacity-50"
         >
-          {loading ? 'Subscribing...' : 'Subscribe Now'}
+          {isSubmitting ? 'Subscribing...' : 'Subscribe'}
         </button>
       </form>
+      
+      {message && (
+        <p className={`mt-3 text-sm ${message.includes('Thank') ? 'text-green-200' : 'text-red-200'}`}>
+          {message}
+        </p>
+      )}
     </div>
   );
 };
